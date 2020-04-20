@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace timezone_issues.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class TimezoneController : Controller
     {
         // GET: api/values
