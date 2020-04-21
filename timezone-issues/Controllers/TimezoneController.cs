@@ -35,8 +35,14 @@ namespace timezone_issues.Controllers
         [HttpPost]
         public void Post([FromBody]Dates dates)
         {
+            //Arriving date in string
             Console.WriteLine("date1 "+dates.date1);
             Console.WriteLine("date2 "+ dates.date2);
+            //Converting it to C# DateTime
+            DateTime d1 = DateTime.Parse(dates.date1, null, System.Globalization.DateTimeStyles.RoundtripKind);
+            DateTime d2 = DateTime.Parse(dates.date2, null, System.Globalization.DateTimeStyles.RoundtripKind);
+            Console.WriteLine("d1 " + d1);
+            Console.WriteLine("d2 " + d2);
         }
 
         // PUT api/values/5
