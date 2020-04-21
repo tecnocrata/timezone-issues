@@ -8,6 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace timezone_issues.Controllers
 {
+    public class Dates
+    {
+        public string date1 { get; set; }
+        public string date2 { get; set; }
+    }
+
     [Route("[controller]")]
     public class TimezoneController : Controller
     {
@@ -15,7 +21,7 @@ namespace timezone_issues.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "America/Denver", "America/New_York" };
         }
 
         // GET api/values/5
@@ -27,8 +33,10 @@ namespace timezone_issues.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Dates dates)
         {
+            Console.WriteLine("date1 "+dates.date1);
+            Console.WriteLine("date2 "+ dates.date2);
         }
 
         // PUT api/values/5

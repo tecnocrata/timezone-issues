@@ -20,7 +20,24 @@ namespace timezone_issues
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            //services
+            //    .AddMvc()
+            //    .AddJsonOptions(opts =>
+            //    {
+            //        opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            //        opts.SerializerSettings.Converters.Add(new StringEnumConverter
+            //        {
+            //            NamingStrategy = new CamelCaseNamingStrategy()
+            //        });
+            //        opts.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
+            //    })
+            //    .AddXmlSerializerFormatters();
+
+            //services.AddControllersWithViews();
+            services.AddControllersWithViews().AddJsonOptions(opts =>
+            {
+                opts.JsonSerializerOptions.IgnoreNullValues = true;
+            }).AddNewtonsoftJson();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
