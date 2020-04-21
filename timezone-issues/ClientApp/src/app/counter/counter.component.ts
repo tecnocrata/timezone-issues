@@ -84,7 +84,7 @@ export class CounterComponent {
     console.log('Date 2 luxon ', date2_l);
 
     let date1_final = date1_l; //date1_l.setZone(this.timezone);
-    let date2_final = date2_l.setZone(this.timezone);
+    let date2_final = date2_l; //.setZone(this.timezone);
     console.log('Date 1 final ', date1_final);
     console.log('Date 2 final ', date2_final);
 
